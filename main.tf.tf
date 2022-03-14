@@ -1,13 +1,18 @@
 # Configure the Azure provider
 terraform {
+  required_version = ">= 1.1.0"
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 2.65"
     }
   }
-
-  required_version = ">= 1.1.0"
+  cloud {
+    organization = "JPTestOrganization"
+    workspaces {
+      name = "Example-Workspace"
+    }
+  }
 }
 
 provider "azurerm" {
